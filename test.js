@@ -134,13 +134,7 @@ async function logEvent(type, payload = {}) {
 }
 
 function renderHeader() {
-  document.querySelector("#pairName").textContent = test.label;
-  document.querySelector("#testTitle").textContent = test.title;
-  document.querySelector("#testDesc").textContent = "";
   document.querySelector("#userLabel").textContent = `ID ${userId}`;
-  document.querySelector("#roleLabel").textContent = `ROLE ${info.role}`;
-  document.querySelector("#sideInfo").innerHTML =
-    `배정 테스트: <code>${test.label}</code><br>역할: <code>${info.role}</code>`;
 }
 
 function render() {
@@ -163,7 +157,6 @@ function render() {
   const clue = info.role === "A" ? s.a : s.b;
 
   area.innerHTML = `
-    <h2 class="stage-title">${s.title}</h2>
     <div class="clue">${clue}</div>
     <div class="inputrow">
       <input id="answer" autocomplete="off" placeholder="정답 입력">
@@ -189,7 +182,6 @@ async function check() {
 
   await logEvent(ok ? "correct" : "wrong", {
     stage: state.stage + 1,
-    title: s.title,
     input
   });
 
