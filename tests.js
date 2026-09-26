@@ -453,7 +453,7 @@ export const TESTS = {
         "a": "16",
         "b": "79 / bit",
         "answers": [
-                  "Arecibo"
+                  "Arecibo",
                   "Arecibo message"
         ]
       },
