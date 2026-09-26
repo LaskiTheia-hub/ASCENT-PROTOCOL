@@ -23,7 +23,7 @@ let test = null;
 let state = { stage: 0, done: false, startedAt: null, resetMarkerSeen: 0 };
 let resetTimer = null;
 
-const FINAL_COMMON = "아르고스, 여러분께 드릴 말씀이 있는 거예요! 단말에 있지 않은 규정이 있는 거예요! 아르고스, 관리자분들 몰래 말씀드리는 거예요!";
+const FINAL_COMMON = "아르고스, 여러분께 드릴 말씀이 있는 거예요! 단말에 있지 않은 규정이 있는 거예요!\n아르고스, 관리자분들 몰래 말씀드리는 거예요!";
 
 const FINAL_FRAGMENTS = {
   pair01: { A: "제 0조", B: "본" },
