@@ -1,17 +1,20 @@
+ASCENT ARGUS Portal Firebase v2
 
-ASCENT ARGUS Portal Firebase v1
+중요:
+1. 이 사이트는 file:// 더블클릭으로 실행하면 안 됩니다. GitHub Pages처럼 https:// 주소에서 실행해야 합니다.
+2. Firebase Authentication > Settings > Authorized domains에 laskitheia-hub.github.io를 추가해야 로그인됩니다.
+3. 관리자 페이지를 쓰려면 Firebase Authentication에 operator@argus.test 계정을 하나 추가하세요. 비밀번호는 직접 정하세요.
+4. Firestore Rules에는 firestore.rules.txt 내용을 붙여넣으세요.
+5. 문제 수정은 data/tests.json만 수정하면 됩니다.
+6. 페어는 config.js의 PARTICIPANTS에 고정되어 있습니다. 랜덤 배정은 없습니다.
 
-1. Firebase Authentication에 사용자 06101@argus.test ~ 06110@argus.test를 만든 상태에서 사용합니다.
-2. 관리자 페이지를 쓰려면 Authentication에 operator@argus.test 계정을 하나 추가하세요. 비밀번호는 운영자만 알면 됩니다.
-3. index.html을 열면 로그인 페이지가 나옵니다.
-4. 참가자 ID는 06101처럼 입력합니다. 사이트 내부에서 자동으로 @argus.test를 붙입니다.
-5. 로그인 후 ID에 따라 pair01~pair05가 자동 배정됩니다.
-6. 결과는 Firestore의 progress, events 컬렉션에 저장됩니다.
-7. 관리자 페이지는 admin.html입니다.
-8. 문제 수정은 data/tests.json만 수정하면 됩니다. stages 안의 title, brief, a, b, answers, hint를 바꾸세요.
-9. GitHub Pages에 올릴 때는 이 폴더 안의 파일 전체를 업로드하면 됩니다.
-10. Firestore 보안 규칙을 적용하려면 firestore.rules.txt 내용을 Firebase Console > Firestore > Rules에 붙여넣으세요.
+GitHub에 올리는 방법:
+1. 이 ZIP을 압축 해제합니다.
+2. GitHub 저장소 ASCENT-PROTOCOL에 들어갑니다.
+3. Add file > Upload files를 누릅니다.
+4. 압축 푼 폴더 안의 모든 파일과 폴더를 드래그합니다.
+5. Commit changes를 누릅니다.
+6. Settings > Pages에서 main / root가 선택되어 있으면 1~2분 뒤 반영됩니다.
 
-관리자 계정 권장:
-email: operator@argus.test
-password: 직접 정한 6자 이상 비밀번호
+접속 주소 예시:
+https://laskitheia-hub.github.io/ASCENT-PROTOCOL/
