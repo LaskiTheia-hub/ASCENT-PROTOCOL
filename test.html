@@ -1,0 +1,32 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARGUS Cognitive Test</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="wrap">
+    <div class="topbar">
+      <div>
+        <div class="kicker">ARGUS COGNITIVE TEST</div>
+        <h1><span id="pairName">PAIR</span> / <span id="testTitle">TEST</span></h1>
+        <p id="testDesc" class="subtitle"></p>
+      </div>
+      <div class="status"><span id="userLabel"></span><br><span id="roleLabel"></span></div>
+    </div>
+    <section class="game">
+      <aside class="side">
+        <div class="kicker">PROGRESS</div>
+        <div class="progress"><div id="progressBar"></div></div>
+        <p id="sideInfo" class="meta"></p>
+        <button id="logoutBtn" class="danger">LOGOUT</button>
+      </aside>
+      <section class="main" id="stageArea">로딩 중입니다.</section>
+    </section>
+  </main>
+  <script type="module" src="./src/test.js"></script>
+</body>
+</html>

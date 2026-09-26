@@ -1,0 +1,34 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARGUS Portal</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="wrap">
+    <div class="topbar">
+      <div>
+        <div class="kicker">ARGUS RESEARCH FACILITY</div>
+        <h1>COGNITIVE PAIR TEST</h1>
+        <p class="subtitle">ID와 PW를 입력하십시오. 인증된 참가자는 자동으로 배정된 2인 미궁 테스트로 이동합니다.</p>
+      </div>
+      <div class="status">ASCENT PROTOCOL<br>PAIR ACCESS</div>
+    </div>
+    <section id="loginView" class="loginbox">
+      <div class="formrow">
+        <label for="loginId">ID</label>
+        <input id="loginId" placeholder="06101">
+        <label for="loginPw">PW</label>
+        <input id="loginPw" type="password" placeholder="******">
+        <button id="loginBtn">LOGIN</button>
+      </div>
+      <div id="loginMsg" class="msg"></div>
+    </section>
+    <section id="loadingView" class="panel hidden">인증 상태 확인 중입니다.</section>
+  </main>
+  <script type="module" src="./src/login.js"></script>
+</body>
+</html>
