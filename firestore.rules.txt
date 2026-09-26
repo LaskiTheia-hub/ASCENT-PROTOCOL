@@ -1,27 +1,17 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    function signedIn() {
-      return request.auth != null;
-    }
-    function email() {
-      return request.auth.token.email;
-    }
-    function userId() {
-      return request.auth.token.email.split("@")[0];
-    }
-    function isAdmin() {
-      return signedIn() && email() in ["operator@argus.test"];
-    }
+    function signedIn() { return request.auth != null; }
+    function isAdmin() { return signedIn() && request.auth.token.email in ["operator@argus.test"]; }
 
-    match /progress/{id} {
-      allow read: if isAdmin() || (signedIn() && id == userId());
-      allow create, update: if signedIn() && (id == userId() || isAdmin());
+    match /progress/{uid} {
+      allow read: if isAdmin() || (signedIn() && uid == request.auth.uid);
+      allow create, update: if signedIn() && (uid == request.auth.uid || isAdmin());
     }
 
     match /events/{eventId} {
       allow read: if isAdmin();
-      allow create: if signedIn();
+      allow create: if signedIn() && request.resource.data.uid == request.auth.uid;
     }
   }
 }
