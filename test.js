@@ -23,6 +23,16 @@ let test = null;
 let state = { stage: 0, done: false, startedAt: null, resetMarkerSeen: 0 };
 let resetTimer = null;
 
+const FINAL_COMMON = "아르고스, 여러분께 드릴 말씀이 있는 거예요! 단말에 있지 않은 규정이 있는 거예요! 아르고스, 관리자분들 몰래 말씀드리는 거예요!";
+
+const FINAL_FRAGMENTS = {
+  pair01: { A: "제 0조", B: "본" },
+  pair02: { A: "실험의", B: "최우선" },
+  pair03: { A: "목적은", B: "폭주" },
+  pair04: { A: "대응", B: "가능" },
+  pair05: { A: "개체의", B: "확보이다." }
+};
+
 function norm(v) {
   return String(v || "")
     .trim()
@@ -137,6 +147,23 @@ function renderHeader() {
   document.querySelector("#userLabel").textContent = `ID ${userId}`;
 }
 
+function finalFragment() {
+  return FINAL_FRAGMENTS[pairId]?.[info.role] || "";
+}
+
+function renderFinalScreen() {
+  const fragment = finalFragment();
+  return `
+    <div class="end" style="text-align:center; padding:64px 16px;">
+      <strong style="display:block; font-size:28px; letter-spacing:.08em; margin-bottom:28px;">테스트가 종료되었습니다.</strong>
+      <div style="color:#8f918c; font-size:12px; line-height:1.9; max-width:620px; margin:0 auto;">
+        ${FINAL_COMMON}<br>
+        ${fragment}
+      </div>
+    </div>
+  `;
+}
+
 function render() {
   renderHeader();
 
@@ -147,9 +174,9 @@ function render() {
   const area = document.querySelector("#stageArea");
 
   if (state.done || state.stage >= total) {
-    area.innerHTML = `<div class="end"><strong>OBSERVATION COMPLETE</strong></div>`;
+    area.innerHTML = renderFinalScreen();
     document.querySelector("#progressBar").style.width = "100%";
-    saveProgress({ done: true });
+    saveProgress({ done: true, finalFragment: finalFragment() });
     return;
   }
 
