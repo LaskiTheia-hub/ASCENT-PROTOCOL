@@ -11,7 +11,12 @@ service cloud.firestore {
 
     match /events/{eventId} {
       allow read: if isAdmin();
-      allow create: if signedIn() && request.resource.data.uid == request.auth.uid;
+      allow create: if signedIn();
+    }
+
+    match /resets/{userId} {
+      allow read: if isAdmin() || (signedIn() && request.auth.token.email.split("@")[0] == userId);
+      allow create, update: if isAdmin();
     }
   }
 }
