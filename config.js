@@ -14,10 +14,10 @@ export const PARTICIPANTS = {
   "06102": { pair: "pair02", role: "A" },
   "06103": { pair: "pair03", role: "A" },
   "06104": { pair: "pair04", role: "A" },
-  "06105": { pair: "pair05", role: "A" },
-  "06106": { pair: "pair02", role: "B" },
-  "06107": { pair: "pair04", role: "B" },
+  "06105": { pair: "pair02", role: "B" },
+  "06106": { pair: "pair03", role: "B" },
+  "06107": { pair: "pair01", role: "B" },
   "06108": { pair: "pair05", role: "B" },
-  "06109": { pair: "pair03", role: "B" },
-  "06110": { pair: "pair01", role: "B" }
+  "06109": { pair: "pair05", role: "A" },
+  "06110": { pair: "pair04", role: "B" }
 };
